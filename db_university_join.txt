@@ -34,6 +34,13 @@ Neuroscienze
 sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
 nome
 
+            SELECT *
+            FROM `students`
+            JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id`
+            JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
+            ORDER BY `students`.`name`, `students`.`surname` ASC;
+
+
 
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
@@ -55,7 +62,7 @@ Matematica (54)
             JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
             JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
             WHERE `departments`.`name` = 'Dipartimento di Matematica';
-            
+
 
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
 per ogni esame, stampando anche il voto massimo. Successivamente,
